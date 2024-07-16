@@ -5,7 +5,6 @@ import { HiOutlineHeart, HiHeart } from 'react-icons/hi';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocalStorageState } from '../_hooks/useLocalStorageState';
-import { useEffect } from 'react';
 
 const PokemonList = ({ data, apiUrl, imageUrl }) => {
   const [favourites, setFavourites] = useLocalStorageState([], 'favourites');
