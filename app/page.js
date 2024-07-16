@@ -3,7 +3,9 @@ import PokemonList from './_components/PokemonList';
 import Spinner from './_components/Spinner';
 
 const HomePage = async () => {
-  const response = await fetch(`${process.env.BASE_API_URL}/pokemon/`);
+  const response = await fetch(
+    `${process.env.BASE_API_URL}/pokemon/?offset=0&limit=100`
+  );
   const data = await response.json();
 
   return (
