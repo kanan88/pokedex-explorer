@@ -4,7 +4,7 @@ const Navigation = () => {
   return (
     <nav className="z-10 text-xl">
       <ul className="flex gap-16 items-center">
-        <li>
+        <li className="hidden sm:inline-flex">
           <Link href="/" className="hover:text-accent-400 transition-colors">
             Home
           </Link>
