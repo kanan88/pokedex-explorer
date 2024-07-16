@@ -51,7 +51,7 @@ const PokemonList = ({ data, apiUrl, imageUrl }) => {
       <div className="flex justify-center">
         <input
           type="text"
-          class="h-14 w-80 sm:w-96 pr-8 pl-5 rounded focus:outline-none text-primary-900"
+          className="h-14 w-80 sm:w-96 pr-8 pl-5 rounded focus:outline-none text-primary-900"
           placeholder="Filter pokemons by name..."
           value={searchValue}
           onChange={(e) => handleSearch(e.target.value)}
@@ -88,7 +88,7 @@ const PokemonList = ({ data, apiUrl, imageUrl }) => {
                 <p className="text-gray-900 text-lg">ID: {id}</p>
               </Link>
 
-              {favourites.find((fav) => fav.name === item.name) ? (
+              {favourites?.find((fav) => fav.name === item.name) ? (
                 <HiHeart
                   onClick={() => onRemoveLike(id)}
                   className="cursor-pointer text-3xl hover:scale-125 text-accent-300 hover:text-accent-300 transition-transform duration-200 ease-out"
