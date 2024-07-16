@@ -8,8 +8,9 @@ BASE_API_URL=https://pokeapi.co/api/v2
 IMAGE_URL=https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world
 
 Then install the npm dependencies and run the project
-
+#
 npm install
+#
 npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
