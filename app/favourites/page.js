@@ -42,7 +42,7 @@ const FavouritesPage = () => {
 
               <HiHeart
                 onClick={() => onRemoveLike(id)}
-                className=" text-accent-300 cursor-pointer text-3xl hover:scale-125 transition-transform duration-200 ease-out"
+                className="text-accent-300 cursor-pointer text-3xl hover:scale-125 transition-transform duration-200 ease-out"
               />
             </li>
           );
