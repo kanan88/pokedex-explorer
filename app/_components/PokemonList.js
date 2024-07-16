@@ -51,14 +51,14 @@ const PokemonList = ({ data, apiUrl, imageUrl }) => {
       <div className="flex justify-center">
         <input
           type="text"
-          class="h-14 w-96 pr-8 pl-5 rounded focus:outline-none text-primary-900"
+          class="h-14 w-80 sm:w-96 pr-8 pl-5 rounded focus:outline-none text-primary-900"
           placeholder="Filter pokemons by name..."
           value={searchValue}
           onChange={(e) => handleSearch(e.target.value)}
         />
       </div>
 
-      <ul className="flex flex-wrap items-center justify-center gap-4 ">
+      <ul className="flex flex-wrap items-center justify-center gap-4">
         {apiData?.map((item) => {
           const id = item.url
             .replace(`${apiUrl}/pokemon/`, '')
