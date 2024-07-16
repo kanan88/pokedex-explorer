@@ -4,7 +4,7 @@ import Link from 'next/link';
 const BASE_API_URL = 'https://pokeapi.co/api/v2';
 const IMAGE_URL =
   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world';
-let OFFSET = 20;
+let OFFSET = 0;
 let LIMIT = 20;
 
 const HomePage = async () => {
@@ -21,12 +21,15 @@ const HomePage = async () => {
           .replace('/', '');
 
         return (
-          <li key={item.url} className="h-80 rounded-md mt-5 ml-5 bg-gray-300 ">
+          <li
+            key={item.url}
+            className="h-80 w-48 rounded-md mt-5 ml-5 bg-gray-300 "
+          >
             <Link
               href={`pokemon/${id}`}
               className="p-5 flex flex-col items-center justify-between h-80"
             >
-              <p className="text-gray-900 mb-5 text-lg">{item.name}</p>
+              <p className="text-gray-900 mb-5 text-xl">{item.name}</p>
               <Image
                 alt={item.name}
                 height={100}
