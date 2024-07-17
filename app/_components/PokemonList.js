@@ -7,6 +7,7 @@ import { HiOutlineHeart, HiHeart } from 'react-icons/hi';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useLocalStorageState } from '../_hooks/useLocalStorageState';
+import PokemonCard from './PokemonCard';
 
 const PokemonList = ({ data, apiUrl, imageUrl }) => {
   const [apiData, setApiData] = useState(data);
@@ -69,24 +70,16 @@ const PokemonList = ({ data, apiUrl, imageUrl }) => {
               key={item.url}
               className="h-80 w-48 rounded-md mt-5 ml-5 bg-gray-300 border-primary-800 border "
             >
-              <Link
-                href={`pokemon/${id}`}
-                className={`h-80 w-48 p-5 flex flex-col items-center justify-between hover:bg-accent-200 rounded-md ${
+              <PokemonCard
+                id={id}
+                name={item.name}
+                imageUrl={`${imageUrl}/${id}.svg`}
+                style={`${
                   favourites.find((fav) => fav.name === item.name)
                     ? 'bg-accent-300'
                     : ''
                 }`}
-              >
-                <p className="text-gray-900 mb-5 text-xl ">{item.name}</p>
-                <Image
-                  alt={item.name}
-                  height={100}
-                  width={100}
-                  className="mb-5"
-                  src={`${imageUrl}/${id}.svg`}
-                />
-                <p className="text-gray-900 text-lg">ID: {id}</p>
-              </Link>
+              />
 
               {favourites?.find((fav) => fav.name === item.name) ? (
                 <HiHeart
