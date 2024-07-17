@@ -1,13 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { HiOutlineHeart, HiHeart } from 'react-icons/hi';
-
-import Image from 'next/image';
-import Link from 'next/link';
 import { useLocalStorageState } from '../_hooks/useLocalStorageState';
 import PokemonCard from './PokemonCard';
+import { HiOutlineHeart, HiHeart } from 'react-icons/hi';
+import SearchBar from './SearchBar';
 
 const PokemonList = ({ data, apiUrl, imageUrl }) => {
   const [apiData, setApiData] = useState(data);
@@ -15,15 +13,13 @@ const PokemonList = ({ data, apiUrl, imageUrl }) => {
   const [searchValue, setSearchValue] = useState('');
   const [favourites, setFavourites] = useLocalStorageState([], 'favourites');
 
-  const handleSearch = (value) => {
-    setSearchValue(value);
-
+  useEffect(() => {
     const updatedData = data?.filter((item) =>
-      item?.name?.toLowerCase().includes(value.toLowerCase())
+      item?.name?.toLowerCase().includes(searchValue.toLowerCase())
     );
 
     setApiData(updatedData);
-  };
+  }, [searchValue, data]);
 
   const onAddLike = (id, name) => {
     const checkPokemon = (obj) => obj.id.toString() === id.toString();
@@ -49,15 +45,7 @@ const PokemonList = ({ data, apiUrl, imageUrl }) => {
 
   return (
     <>
-      <div className="flex justify-center">
-        <input
-          type="text"
-          className="h-14 w-80 sm:w-96 pr-8 pl-5 rounded focus:outline-none text-primary-900"
-          placeholder="Filter pokemons by name..."
-          value={searchValue}
-          onChange={(e) => handleSearch(e.target.value)}
-        />
-      </div>
+      <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
 
       <ul className="flex flex-wrap items-center justify-center gap-4">
         {apiData?.map((item) => {

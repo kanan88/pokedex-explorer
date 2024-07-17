@@ -1,8 +1,7 @@
 'use client';
+
 import { useLocalStorageState } from '../_hooks/useLocalStorageState';
 import { HiHeart } from 'react-icons/hi';
-import Image from 'next/image';
-import Link from 'next/link';
 import PokemonCard from './PokemonCard';
 
 const FavouritePokemonList = () => {
