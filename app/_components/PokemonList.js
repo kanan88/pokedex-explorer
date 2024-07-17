@@ -32,7 +32,6 @@ const PokemonList = ({ data, apiUrl, imageUrl }) => {
         id,
         imageUrl,
         name,
-        selected: true,
       },
     ]);
   };
